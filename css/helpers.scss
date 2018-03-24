@@ -1,0 +1,185 @@
+/* Table of contents
+=====================
+// 1. Variables
+// 2. Placeholders
+// 3. Functions
+// 4. Mixins
+// 10. Animations
+=====================
+*/
+
+// 1. Variables
+// unicode
+$icons: (
+  hamburger: "☰",
+  email: "✉",
+  close: "✖",
+  check: "✓",
+  copyright: "©",
+  arrow-left: "🠔",
+  arrow-right: "🠖",
+  s-arrow-left: "🢐",
+  s-arrow-right: "🢒",
+  star: "★",
+  heart: "♡"
+);
+
+
+// colors
+$pure-white: #ffffff;
+$hell-black: #383838;
+$sweet-gray: #cfcfcf;
+$rainbow-background: linear-gradient(42deg, #c86dd7 0%, #3023ae 100%);
+$magic-purple: linear-gradient(to top, #b564d2 0%, #c76dd7 99%, #c76dd7 100%);
+
+
+
+$grid-template_mobile: "sum" auto 
+                       "info" auto 
+                       "payments" auto / auto;
+$grid-template_tablet: "info sum" minmax(auto, 500px)
+                       "payments ." auto / 2fr 1fr;
+
+$grid-template_desktop: "info sum" auto 
+                        "payments ." auto / 2fr 1fr;
+                       
+$tablet: "(min-width: 768px) and (max-width: 1023px)";
+$desktop: "(min-width: 1024px) and (max-width: 1423px)";
+$screen: "(min-width: 1424px)";
+
+// 2. Placeholders
+%text-center {
+  text-align: center;
+}
+
+%position-absolute {
+  position: absolute;
+}
+
+%display-inline-block {
+  display: inline-block;
+}
+
+%border-radius {
+  border-radius: 5px;
+}
+
+%box-center {
+  margin: 0 auto;
+}
+
+%box-full-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%flex {
+  display: flex;
+}
+
+%pointer {
+  cursor: pointer;
+}
+
+%transition {
+  transition: all 0.2s ease-in-out;
+}
+
+%visuallyhidden {
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip: rect(0, 0, 0, 0);
+    position: absolute;
+  }
+
+// 3. Functions
+@function prc($el, $target) {
+  @return (100% * $el) / $target;
+}
+
+// 4. Mixins
+//   media queries
+@mixin large {
+    @media only screen and (max-width: 60em) {
+      @content;
+    }
+  }
+  
+  @mixin medium {
+    @media only screen and (max-width: 40em) {
+      @content;
+    }
+  }
+  
+  @mixin small {
+    @media only screen and (max-width: 30em) {
+      @content;
+    }
+  }
+
+// pseudo class
+  @mixin pseudo($display: block, $pos: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+// triangles
+@mixin triangle($color, $direction, $size: 6px, $position: absolute, $round: false){
+    @include pseudo($pos: $position);
+    width: 0;
+    height: 0;
+    @if $round {
+        border-radius: 3px;
+    }
+    @if $direction == down {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-top: $size solid $color;
+        margin-top: 0 - round( $size / 2.5 );
+    } @else if $direction == up {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-bottom: $size solid $color;
+        margin-bottom: 0 - round( $size / 2.5 );
+    } @else if $direction == right {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-left: $size solid $color;
+        margin-right: -$size;
+    } @else if  $direction == left {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-right: $size solid $color;
+        margin-left: -$size;
+    }
+}
+
+// font
+@mixin font($font-style, $font-variant, $font-weight, $font-size, $line-height, $font-family){
+    font: $font-style, $font-variant, $font-weight, #{$font-size}/#{$line-height}, "#{$font-family}", Arial, Helvetica, sans-serif;
+}
+
+// background 
+@mixin bg($color, $url, $repeat, $position){
+    background: $color, url("#{$url}"), $repeat, $position;
+}
+
+// truncate
+@mixin truncate($truncation-boundary) {
+    max-width: $truncation-boundary;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// font face
+@mixin font-face($family, $url) {
+  font-family: "#{$family}";
+  src: url("#{$url}");
+}
