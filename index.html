@@ -10,15 +10,20 @@
 </head>
 <body>
     <section class="modal">
-        <h2>Welcome to Codequest</h2>
+        <h2>Welcome to <span class="font--bold">Codequest</span></h2>
         <div class="modal__img">
-            <img class="modal__img-item" src="../img/foto-03.png" alt="">
-            <img class="modal__img-item" src="../img/foto-01.png" alt="">
-            <img class="modal__img-item" src="../img/foto-02.png" alt="">
+            <img class="modal__img-item1" src="../img/foto-03.png" alt="">
+            <img class="modal__img-item2" src="../img/foto-01.png" alt="">
+            <img class="modal__img-item3" src="../img/foto-02.png" alt="">
         </div>
-        <form action="" class="modal__form">
-            <input type="text" placeholder="Email">
-        </form>
+
+        <form class="form-label form-css-label">
+            <fieldset>
+              <input id="email" name="ccemail" autocomplete="cc-email" type="email" required />
+              <label for="email">Email</label>
+            </fieldset>
+
+
         <button class="btn btn--wide">Update settings</button>
     </section>
 </body>
