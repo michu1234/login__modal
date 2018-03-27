@@ -7,6 +7,22 @@
 // 10. Animations
 =====================
 */
+html, body {
+  text-align: center;
+}
+
+.form-label label, .btn:after, .modal__img-item1, .modal__img-item2, .modal__img-item3 {
+  position: absolute;
+}
+
+.form-label fieldset, .btn, .modal__img {
+  position: relative;
+}
+
+html, body, .modal {
+  display: flex;
+}
+
 .btn {
   cursor: pointer;
 }
@@ -42,24 +58,20 @@
 }
 
 html, body {
-  font: normal normal 400 10px/normal "Lato Regular", Arial, Helvetica, sans-serif;
-  text-align: center;
+  font: normal normal 400 62.5%/normal "Lato Regular", Arial, Helvetica, sans-serif;
   background: linear-gradient(42deg, #c86dd7 0%, #3023ae 100%) no-repeat;
   width: 100%;
   min-height: 100vh;
   overflow-y: hidden;
   justify-content: center;
   align-items: center;
-  display: flex;
 }
 
 h2 {
   color: #383838;
-  font-size: 2.6rem;
-  font-weight: 300;
+  font: normal normal 400 2.6rem/normal "Lato Light", Arial, Helvetica, sans-serif;
   margin: 0;
   margin: 72px 87px 25px 88px;
-  font-family: "Lato Light";
 }
 
 fieldset {
@@ -71,8 +83,8 @@ fieldset {
 input {
   display: block;
   margin-bottom: 25px;
-  max-width: 371px;
-  padding: 12px 29px 12px 130px;
+  width: 250px;
+  padding: 12px 0 12px 131px;
   border: none;
   border-bottom: 2px solid #cfcfcf;
   border-radius: 0;
@@ -82,10 +94,6 @@ input {
   outline: 0;
   appearance: none;
   transition: all 0.2s ease-in-out;
-}
-
-.form-label fieldset {
-  position: relative;
 }
 
 .form-label fieldset:first-child input {
@@ -102,7 +110,6 @@ input {
 }
 
 .form-label label {
-  position: absolute;
   font-size: 1.8rem;
   top: 11px;
   left: 8px;
@@ -127,7 +134,8 @@ input {
 
 .form-css-label input[data-empty="false"], .form-css-label input:valid, .form-css-label input:focus {
   padding: 22px 8px 10px;
-  width: 371px;
+  width: 365px;
+  transition: 0;
 }
 
 .form-css-label input:focus {
@@ -153,7 +161,6 @@ input {
   box-shadow: 0 1px 40px rgba(80, 0, 151, 0.56);
   border-radius: 14px;
   background-color: #ffffff;
-  display: flex;
   flex-direction: column;
   align-items: center;
 }
@@ -161,17 +168,12 @@ input {
 .btn {
   font-family: "Lato Bold";
   font-weight: 700;
-}
-
-.btn {
-  position: relative;
   box-shadow: 0 4px 25px rgba(144, 19, 254, 0.56);
   border-radius: 8px;
   background-image: linear-gradient(to top, #b564d2 0%, #c76dd7 99%, #c76dd7 100%);
   border: none;
   color: #ffffff;
   font-size: 1.8rem;
-  width: 200px;
   -webkit-transition-duration: 0.4s;
   /* Safari */
   transition-duration: 0.4s;
@@ -184,7 +186,6 @@ input {
   content: "";
   background: #ffb3ff;
   display: block;
-  position: absolute;
   padding-top: 300%;
   padding-left: 350%;
   margin-left: -20px !important;
@@ -203,12 +204,10 @@ input {
 .modal__img {
   margin-bottom: 22px;
   height: 131px;
-  width: 100%;
-  position: relative;
+  max-width: 100%;
 }
 
 .modal__img-item1 {
-  position: absolute;
   z-index: 2;
   top: 50%;
   left: 50%;
@@ -217,7 +216,6 @@ input {
 }
 
 .modal__img-item2 {
-  position: absolute;
   top: 50%;
   left: 50%;
   z-index: 3;
@@ -225,7 +223,6 @@ input {
 }
 
 .modal__img-item3 {
-  position: absolute;
   z-index: 1;
   top: 50%;
   left: 50%;

@@ -26,24 +26,22 @@
 
 // 2. Base
 html, body {
-    @include font(normal, normal, 400, 10px, normal, "Lato Regular");
-    text-align: center;
+    @include font(normal, normal, 400, 62.5%, normal, "Lato Regular");
+    @extend %text-center;
     background: $rainbow-background no-repeat;
     width: 100%;
     min-height: 100vh;
     overflow-y: hidden;
     justify-content: center;
     align-items: center;
-    display: flex;
+    @extend %flex;
 }
 
 h2 {
     color: $hell-black;
-    font-size: 2.6rem;
-    font-weight: 300;
+    @include font(normal, normal, 400, 2.6rem, normal, "Lato Light");
     margin: 0;
     margin: 72px 87px 25px 88px;
-    font-family: "Lato Light";
 }
 
 fieldset {
@@ -54,8 +52,8 @@ fieldset {
   input {
     display: block;
     margin-bottom: 25px;
-    max-width: 371px;
-    padding: 12px 29px 12px 130px;
+    width: 250px;
+    padding: 12px 0 12px 131px;
     border: none;
     border-bottom: 2px solid $sweet-gray;
     border-radius: 0;
@@ -69,7 +67,7 @@ fieldset {
 
   .form-label {
     fieldset {
-      position: relative;
+      @extend %relative;
       &:first-child input {
         border-radius: 4px 4px 0 0;
       }
@@ -80,7 +78,7 @@ fieldset {
       & + fieldset { border-top: 1px solid #ddd; }
     }
     label {
-      position: absolute;
+      @extend %absolute;
       font-size: 1.8rem;
       top: 11px;
       left: 8px;
@@ -108,7 +106,8 @@ fieldset {
       &:valid,
       &:focus {
         padding: 22px 8px 10px;
-        width: 371px;
+        width: 365px;
+        transition: 0;
       }
       &:focus {
         outline: 0;
@@ -127,9 +126,6 @@ fieldset {
     }
   }
 
-
-
-
 // 3. Layout
 .modal {
 width: 470px;
@@ -137,31 +133,24 @@ height: 470px;
 box-shadow: 0 1px 40px rgba(80, 0, 151, 0.56);
 border-radius: 14px;
 background-color: $pure-white;
-display: flex;
+@extend %flex;
 flex-direction: column;
 align-items: center;
 }
+
 // 4. Block + element
 .btn {
-    
-    
-    
     font-family: "Lato Bold";
-
     font-weight: 700;
     @extend %transition;
     @extend %pointer;
-}
-
-.btn {
-    position: relative;
+    @extend %relative;
     box-shadow: 0 4px 25px rgba(144, 19, 254, 0.56);
     border-radius: 8px;
     background-image: $magic-purple;
     border: none;
     color: $pure-white;
     font-size: 1.8rem;
-    width: 200px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     text-decoration: none;
@@ -173,7 +162,7 @@ align-items: center;
     content: "";
     background: #ffb3ff;
     display: block;
-    position: absolute;
+    @extend %absolute;
     padding-top: 300%;
     padding-left: 350%;
     margin-left: -20px!important;
@@ -192,12 +181,12 @@ align-items: center;
 .modal__img {
     margin-bottom: 22px;
     height: 131px;
-    width: 100%;
-    position: relative;
+    max-width: 100%;
+    @extend %relative;
 }
 
 .modal__img-item1 {
-    position: absolute;
+    @extend %absolute;
     z-index: 2;
     top: 50%;
     left: 50%;
@@ -206,7 +195,7 @@ align-items: center;
 }
 
 .modal__img-item2 {
-    position: absolute;
+    @extend %absolute;
     top: 50%;
     left: 50%;
     z-index: 3;
@@ -214,7 +203,7 @@ align-items: center;
 }
 
 .modal__img-item3 {
-    position: absolute;
+    @extend %absolute;
     z-index: 1;
     top: 50%;
     left: 50%;
@@ -238,8 +227,8 @@ align-items: center;
     box-shadow:0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
     letter-spacing: .8px;
  }
-// 7. Animations
 
+// 7. Animations
 @keyframes animation_img1 {
     0% {
         transform: scale3d(1,1,1) translate(-140%, -50%);
