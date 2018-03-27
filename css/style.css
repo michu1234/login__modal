@@ -231,7 +231,8 @@ input {
 }
 
 .btn--wide {
-  width: 381px;
+  width: 100%;
+  max-width: 381px;
   height: 52px;
 }
 

@@ -213,7 +213,8 @@ align-items: center;
 
 // 5. Modifier
 .btn--wide {
-    width: 381px;
+    width: 100%;
+    max-width: 381px;
     height: 52px;
 }
 
